@@ -15,7 +15,7 @@ WiFiManager wifiManager;
 bool POWER_ON = false;
 bool CHANGE_OCCURED = false;
 String STATE_PREVIOUS = "0";
-
+String URL_ = "Your API here";
 void wifi() {
   wifiManager.setBreakAfterConfig(true);
   if (!wifiManager.autoConnect("PC_CONTROLLER", "pccontroller")) {
@@ -37,7 +37,7 @@ void wifireset() {
 }
 
 void observer() {
-   http.begin("http://kusumakalyan.pythonanywhere.com/getonoffvalue");
+   http.begin(URL_);
    delay(200);
    
    int httpCode = http.GET();
